@@ -10,12 +10,12 @@ const AdminDashboard = () => {
   const [filter, setFilter] = useState("");
 
   useEffect(() => {
-    // Simulação de chamada à API para buscar métricas
+    
     fetch("/api/admin/metrics")
       .then((res) => res.json())
       .then((data) => setMetrics(data));
 
-    // Simulação de chamada à API para buscar logs
+    
     fetch("/api/admin/logs")
       .then((res) => res.json())
       .then((data) => setLogs(data));
