@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 
+
 const Dashboard = () => {
     const [user, setUser] = useState({ name: "Usuário" });
     const [stats, setStats] = useState({
@@ -7,6 +8,14 @@ const Dashboard = () => {
         streaks: 3,
         lastPost: "Como melhorar seu código?",
     });
+
+    useEffect(() => {
+        const fetchStats = async () => {
+            const data = await getAdminStats();
+            setStats(data);
+        };
+        fetchStats();
+    },[])
     
     return (
         <div className="min-h-screen bg-gray-100 p-6">
